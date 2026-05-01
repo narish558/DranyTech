@@ -821,8 +821,332 @@ footer { background: var(--navy-900); padding: 80px 64px 40px; }
   .product-card { padding: 36px 28px; }
 }
 
+/* ─── PORTFOLIO ─── */
+#portfolio { padding: 120px 64px; }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.pf-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.pf-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(10,22,40,0.14); border-color: var(--navy-100); }
+
+.pf-img {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pf-emoji { font-size: 4rem; filter: drop-shadow(0 4px 16px rgba(0,0,0,0.3)); transition: transform 0.3s; }
+.pf-card:hover .pf-emoji { transform: scale(1.1); }
+
+.pf-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,22,40,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.pf-card:hover .pf-overlay { opacity: 1; }
+
+.pf-view {
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  padding-bottom: 2px;
+}
+
+.pf-body { padding: 28px 32px 32px; }
+
+.pf-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--navy-400);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.pf-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--navy-900);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.pf-desc { font-size: 0.875rem; line-height: 1.78; color: var(--text-body); margin-bottom: 20px; }
+
+.pf-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.pf-chip {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--navy-700);
+}
+
+/* ─── CONTACT ─── */
+#contact { padding: 120px 64px; }
+
+.contact-left { position: sticky; top: 100px; }
+
+.contact-info-list { display: flex; flex-direction: column; gap: 24px; }
+
+.ci-item { display: flex; align-items: flex-start; gap: 16px; }
+
+.ci-icon {
+  width: 44px; height: 44px;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.ci-icon svg { width: 20px; height: 20px; stroke: var(--navy-700); }
+
+.ci-label { font-size: 0.75rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+
+.ci-value { font-size: 0.95rem; font-weight: 500; color: var(--navy-800); text-decoration: none; }
+a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
+
+.contact-form-wrap {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 48px 44px;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-success-msg {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-icon {
+  width: 56px; height: 56px;
+  background: #e6f4ea;
+  color: #2d7d46;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 auto 20px;
+}
+
+.form-success-msg h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: var(--navy-900);
+  margin-bottom: 10px;
+}
+
+.form-success-msg p { color: var(--text-body); font-size: 0.95rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+
+.form-label { font-size: 0.8rem; font-weight: 600; color: var(--navy-800); letter-spacing: 0.3px; }
+
+.form-input {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  background: var(--off-white);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+
+.form-input:focus { border-color: var(--navy-400); background: var(--white); box-shadow: 0 0 0 3px rgba(45,95,168,0.08); }
+.form-input::placeholder { color: var(--grey-300); }
+
+.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234a5568' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 40px; cursor: pointer; }
+
+.form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+
+.form-submit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-top: 4px;
+  cursor: pointer;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.form-submit svg { width: 16px; height: 16px; transition: transform 0.2s; }
+.form-submit:hover svg { transform: translateX(3px) translateY(-3px); }
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.form-note { font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 12px; }
+
+/* ─── PRODUCT MODALS ─── */
+#modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,22,40,0.6);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+  backdrop-filter: blur(4px);
+}
+
+#modal-overlay.open { opacity: 1; pointer-events: all; }
+
+#modal-box {
+  background: var(--white);
+  border-radius: 12px;
+  max-width: 680px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 0 32px 80px rgba(10,22,40,0.25);
+}
+
+#modal-overlay.open #modal-box { transform: translateY(0) scale(1); }
+
+.modal-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 36px; height: 36px;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.modal-close:hover { background: var(--navy-900); border-color: var(--navy-900); }
+.modal-close:hover svg { stroke: white; }
+.modal-close svg { width: 16px; height: 16px; stroke: var(--navy-800); }
+
+.modal-hero {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  border-radius: 12px 12px 0 0;
+}
+
+.modal-body { padding: 36px 40px 44px; }
+
+.modal-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--navy-400);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--navy-900);
+  margin-bottom: 16px;
+  line-height: 1.15;
+}
+
+.modal-desc { font-size: 0.95rem; line-height: 1.85; color: var(--text-body); margin-bottom: 28px; }
+
+.modal-features-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.modal-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+
+.modal-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--grey-700);
+  line-height: 1.55;
+}
+
+.modal-features .feat-check { background: var(--navy-100); flex-shrink: 0; margin-top: 2px; }
+
+.modal-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.modal-chip { background: var(--off-white); border: 1px solid var(--border); border-radius: 20px; padding: 5px 14px; font-size: 0.75rem; font-weight: 500; color: var(--navy-700); }
+
+.modal-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ─── RESPONSIVE ADDITIONS ─── */
+@media (max-width: 1024px) {
+  #portfolio, #contact { padding: 80px 32px; }
+  #contact > div { grid-template-columns: 1fr; gap: 48px; }
+  .contact-left { position: static; }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-form-wrap { padding: 32px 24px; }
+  #portfolio, #contact { padding: 72px 24px; }
+  .modal-body { padding: 28px 24px 36px; }
+}
+
 </style>
-</head>
 <body>
 
 <!-- NAV -->
@@ -833,11 +1157,12 @@ footer { background: var(--navy-900); padding: 80px 64px 40px; }
   <ul class="nav-links">
     <li><a href="#products">Products</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="#portfolio">Work</a></li>
     <li><a href="#sectors">Sectors</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-right">
-    <a href="#cta" class="nav-btn">Get in Touch</a>
+    <a href="#contact" class="nav-btn">Get in Touch</a>
     <button class="hamburger" onclick="toggleMobile()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
@@ -847,9 +1172,9 @@ footer { background: var(--navy-900); padding: 80px 64px 40px; }
 <div class="mobile-nav" id="mobileNav">
   <a href="#products" onclick="toggleMobile()">Products</a>
   <a href="#services" onclick="toggleMobile()">Services</a>
-  <a href="#process" onclick="toggleMobile()">Process</a>
+  <a href="#portfolio" onclick="toggleMobile()">Our Work</a>
   <a href="#sectors" onclick="toggleMobile()">Sectors</a>
-  <a href="#cta" onclick="toggleMobile()" style="color:var(--navy-700);font-weight:600;">Get in Touch →</a>
+  <a href="#contact" onclick="toggleMobile()" style="color:var(--navy-700);font-weight:600;">Get in Touch →</a>
 </div>
 
 <!-- HERO -->
@@ -866,7 +1191,7 @@ footer { background: var(--navy-900); padding: 80px 64px 40px; }
     </p>
     <div class="hero-actions">
       <a href="#products" class="btn-navy">Explore Our Products</a>
-      <a href="#cta" class="btn-ghost">
+      <a href="#contact" class="btn-ghost">
         Start a Project
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -1085,19 +1410,194 @@ footer { background: var(--navy-900); padding: 80px 64px 40px; }
   </div>
 </section>
 
-<!-- CTA -->
-<section id="cta">
-  <div class="cta-inner">
-    <p class="section-kicker" style="justify-content:center;"><span class="kicker-dot"></span>Ready to Build</p>
-    <h2 class="cta-title">Let's build something<br><strong>that matters.</strong></h2>
-    <p class="cta-sub">Tell us your vision. We'll engineer the platform that brings it to life — on time, on budget, built to last.</p>
-    <div class="cta-form">
-      <input type="email" id="ctaEmail" placeholder="Your email address">
-      <button onclick="handleCTA()">Get Started &rarr;</button>
+<!-- PORTFOLIO -->
+<section id="portfolio" class="section">
+  <div class="section-intro centered">
+    <p class="section-kicker" style="justify-content:center;"><span class="kicker-dot"></span>Our Work</p>
+    <h2 class="section-heading">Built by DranyTech.<br><strong>Proven in the field.</strong></h2>
+    <p class="section-lead">A look at the platforms we've shipped — each one solving a real problem for a real market.</p>
+  </div>
+  <div class="portfolio-grid">
+
+    <div class="pf-card reveal" onclick="openProduct('nkosoo')">
+      <div class="pf-img" style="background:linear-gradient(135deg,#0f2044 0%,#1e407c 100%);">
+        <span class="pf-emoji">🤖</span>
+        <div class="pf-overlay">
+          <span class="pf-view">View Case Study →</span>
+        </div>
+      </div>
+      <div class="pf-body">
+        <span class="pf-tag">Artificial Intelligence</span>
+        <h3 class="pf-title">Nkosoo AI</h3>
+        <p class="pf-desc">An AI-powered business intelligence platform enabling organisations to query their data in plain language and get instant, actionable insights.</p>
+        <div class="pf-meta">
+          <span class="pf-chip">NLP</span>
+          <span class="pf-chip">Analytics</span>
+          <span class="pf-chip">Automation</span>
+        </div>
+      </div>
     </div>
-    <p class="cta-note" id="ctaNote">No commitments. We'll respond within 24 hours.</p>
+
+    <div class="pf-card reveal" onclick="openProduct('church')">
+      <div class="pf-img" style="background:linear-gradient(135deg,#163060 0%,#2d5fa8 100%);">
+        <span class="pf-emoji">⛪</span>
+        <div class="pf-overlay">
+          <span class="pf-view">View Case Study →</span>
+        </div>
+      </div>
+      <div class="pf-body">
+        <span class="pf-tag">Church Management</span>
+        <h3 class="pf-title">Church Assistant</h3>
+        <p class="pf-desc">A complete digital management system for faith-based organisations — combining smart inventory, member records, and an AI assistant in one platform.</p>
+        <div class="pf-meta">
+          <span class="pf-chip">Inventory</span>
+          <span class="pf-chip">AI Assistant</span>
+          <span class="pf-chip">Finance</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pf-card reveal" onclick="openProduct('fiepa')">
+      <div class="pf-img" style="background:linear-gradient(135deg,#0a1628 0%,#163060 100%);">
+        <span class="pf-emoji">🏠</span>
+        <div class="pf-overlay">
+          <span class="pf-view">View Case Study →</span>
+        </div>
+      </div>
+      <div class="pf-body">
+        <span class="pf-tag">Real Estate · Ghana</span>
+        <h3 class="pf-title">Fie Pa</h3>
+        <p class="pf-desc">Ghana's direct property platform eliminating agent commissions and connecting property owners directly with buyers and renters via Mobile Money.</p>
+        <div class="pf-meta">
+          <span class="pf-chip">PropTech</span>
+          <span class="pf-chip">Mobile Money</span>
+          <span class="pf-chip">AI Chat</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pf-card reveal" onclick="openProduct('trading')">
+      <div class="pf-img" style="background:linear-gradient(135deg,#0f2044 0%,#163060 100%);">
+        <span class="pf-emoji">📈</span>
+        <div class="pf-overlay">
+          <span class="pf-view">View Case Study →</span>
+        </div>
+      </div>
+      <div class="pf-body">
+        <span class="pf-tag">Fintech · Algorithmic Trading</span>
+        <h3 class="pf-title">AI Trading System</h3>
+        <p class="pf-desc">Automated crypto market intelligence monitoring BTC, ETH, BNB and SOL in real time — delivering AI-driven signals and portfolio alerts 24/7.</p>
+        <div class="pf-meta">
+          <span class="pf-chip">Crypto</span>
+          <span class="pf-chip">Automation</span>
+          <span class="pf-chip">Signals</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- CONTACT -->
+<section id="contact" class="section section-alt">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;">
+
+    <div class="contact-left">
+      <p class="section-kicker"><span class="kicker-dot"></span>Get in Touch</p>
+      <h2 class="section-heading">Let's build something<br><strong>that matters.</strong></h2>
+      <p class="section-lead" style="margin-bottom:40px;">Tell us your vision. We'll engineer the platform that brings it to life — on time, on budget, built to last.</p>
+
+      <div class="contact-info-list">
+        <div class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <p class="ci-label">Email us</p>
+            <a href="mailto:hello@dranytech.com" class="ci-value">hello@dranytech.com</a>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <p class="ci-label">Based in</p>
+            <p class="ci-value">Accra, Ghana 🇬🇭</p>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <p class="ci-label">Response time</p>
+            <p class="ci-value">Within 24 hours</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap reveal">
+      <div id="form-success" style="display:none;" class="form-success-msg">
+        <div class="success-icon">✓</div>
+        <h3>Message sent!</h3>
+        <p>Thanks for reaching out. We'll get back to you within 24 hours.</p>
+      </div>
+      <form id="contactForm" onsubmit="submitForm(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Full Name *</label>
+            <input type="text" class="form-input" id="f-name" placeholder="John Doe" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" id="f-email" placeholder="john@company.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Company / Organisation</label>
+          <input type="text" class="form-input" id="f-company" placeholder="Your company name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">What are you interested in? *</label>
+          <select class="form-input form-select" id="f-interest" required>
+            <option value="" disabled selected>Select an option</option>
+            <option>Custom Web Platform</option>
+            <option>Mobile App Development</option>
+            <option>AI / Machine Learning Solution</option>
+            <option>Business Management System</option>
+            <option>E-Commerce &amp; Payments</option>
+            <option>Nkosoo AI — Product Enquiry</option>
+            <option>Church Assistant — Product Enquiry</option>
+            <option>Fie Pa — Product Enquiry</option>
+            <option>AI Trading System — Product Enquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Tell us about your project *</label>
+          <textarea class="form-input form-textarea" id="f-message" rows="5" placeholder="Describe your project, goals, and any specific requirements…" required></textarea>
+        </div>
+        <button type="submit" class="btn-navy form-submit" id="formBtn">
+          Send Message
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+        <p class="form-note">We respect your privacy. No spam, ever.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT MODALS -->
+<div id="modal-overlay" onclick="closeModal()">
+  <div id="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div id="modal-content"></div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1114,27 +1614,27 @@ footer { background: var(--navy-900); padding: 80px 64px 40px; }
     <div class="footer-col">
       <h5>Products</h5>
       <ul>
-        <li><a href="#">Nkosoo AI</a></li>
-        <li><a href="#">Church Assistant</a></li>
-        <li><a href="#">Fie Pa</a></li>
-        <li><a href="#">AI Trading System</a></li>
+        <li><a href="#" onclick="openProduct('nkosoo');return false;">Nkosoo AI</a></li>
+        <li><a href="#" onclick="openProduct('church');return false;">Church Assistant</a></li>
+        <li><a href="#" onclick="openProduct('fiepa');return false;">Fie Pa</a></li>
+        <li><a href="#" onclick="openProduct('trading');return false;">AI Trading System</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Services</h5>
       <ul>
-        <li><a href="#">Web Platforms</a></li>
-        <li><a href="#">Mobile Apps</a></li>
-        <li><a href="#">AI Solutions</a></li>
-        <li><a href="#">Cloud &amp; Infra</a></li>
+        <li><a href="#services">Web Platforms</a></li>
+        <li><a href="#services">Mobile Apps</a></li>
+        <li><a href="#services">AI Solutions</a></li>
+        <li><a href="#services">E-Commerce</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h5>Company</h5>
       <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Our Work</a></li>
-        <li><a href="#">Careers</a></li>
+        <li><a href="#portfolio">Our Work</a></li>
+        <li><a href="#sectors">Sectors</a></li>
+        <li><a href="#contact">Careers</a></li>
         <li><a href="mailto:hello@dranytech.com">Contact</a></li>
       </ul>
     </div>
@@ -1145,51 +1645,157 @@ footer { background: var(--navy-900); padding: 80px 64px 40px; }
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  // Nav
+  // ── EmailJS init ── replace with your actual IDs
+  emailjs.init('YOUR_EMAILJS_PUBLIC_KEY');
+
+  // ── Nav scroll ──
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 10);
   });
 
-  // Mobile menu
+  // ── Mobile menu ──
   function toggleMobile() {
     document.getElementById('mobileNav').classList.toggle('open');
   }
 
-  // CTA form
-  function handleCTA() {
-    const input = document.getElementById('ctaEmail');
-    const note = document.getElementById('ctaNote');
-    if (input.value && input.value.includes('@')) {
-      input.value = '';
-      note.textContent = '✓ Thanks! We\'ll be in touch within 24 hours.';
-      note.style.color = 'var(--navy-600)';
-      note.style.fontWeight = '500';
-    } else {
-      input.style.outline = '2px solid #c0392b';
-      setTimeout(() => { input.style.outline = ''; }, 1500);
-    }
+  // ── Contact form via EmailJS ──
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('formBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const params = {
+      from_name:    document.getElementById('f-name').value,
+      from_email:   document.getElementById('f-email').value,
+      company:      document.getElementById('f-company').value,
+      interest:     document.getElementById('f-interest').value,
+      message:      document.getElementById('f-message').value,
+    };
+
+    // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your EmailJS values
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', params)
+      .then(() => {
+        document.getElementById('contactForm').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
+        alert('Something went wrong. Please email us directly at hello@dranytech.com');
+      });
   }
 
-  // Scroll reveal with stagger
+  // ── Product modal data ──
+  const products = {
+    nkosoo: {
+      emoji: '🤖',
+      bg: 'linear-gradient(135deg,#0f2044,#1e407c)',
+      tag: 'Artificial Intelligence',
+      title: 'Nkosoo AI',
+      desc: 'Nkosoo AI is an intelligent business assistant platform built for organisations that want to unlock the power of their data without needing a data science team. Ask questions in plain English, get instant reports, and automate repetitive analytical tasks — all from one dashboard.',
+      features: [
+        'Natural language queries — ask your data anything in plain English',
+        'Automated reporting and scheduled data summaries',
+        'Real-time business insights and KPI dashboards',
+        'Seamless integration with existing business systems and databases',
+        'Multi-user access with role-based permissions',
+      ],
+      chips: ['NLP', 'Analytics', 'Automation', 'Dashboards', 'API Integration'],
+    },
+    church: {
+      emoji: '⛪',
+      bg: 'linear-gradient(135deg,#163060,#2d5fa8)',
+      tag: 'Church & Inventory Management',
+      title: 'Church Assistant',
+      desc: 'Church Assistant is a complete digital operations platform for faith-based organisations. From tracking inventory and managing members to recording tithes and running the AI assistant, it puts everything a modern church needs in one easy-to-use system.',
+      features: [
+        'Smart inventory management with automated reorder alerts',
+        'Member records, attendance tracking and follow-up tools',
+        'Tithes, donations and financial reporting module',
+        'Built-in AI assistant for administrative and pastoral support',
+        'Event management and announcement broadcasting',
+      ],
+      chips: ['Inventory', 'AI Assistant', 'Finance', 'Member Management', 'Events'],
+    },
+    fiepa: {
+      emoji: '🏠',
+      bg: 'linear-gradient(135deg,#0a1628,#163060)',
+      tag: 'Real Estate · Ghana',
+      title: 'Fie Pa',
+      desc: 'Fie Pa is Ghana\'s premier direct property platform — connecting property owners directly with buyers and renters and eliminating agent commissions entirely. With Mobile Money integration and Akosua, an AI property assistant, Fie Pa makes property transactions in Ghana simpler, cheaper, and more transparent.',
+      features: [
+        'Zero-commission direct listings for sale and rent across Ghana',
+        'Mobile Money payments — MTN MoMo and Vodafone Cash',
+        'Akosua AI assistant guiding buyers and renters throughout',
+        'Verified property listings with photo galleries and maps',
+        'Direct owner-to-tenant messaging and scheduling',
+      ],
+      chips: ['PropTech', 'Mobile Money', 'AI Chat', 'Ghana', 'Zero Commission'],
+    },
+    trading: {
+      emoji: '📈',
+      bg: 'linear-gradient(135deg,#0f2044,#163060)',
+      tag: 'Fintech · Algorithmic Trading',
+      title: 'AI Trading System',
+      desc: 'Our AI Trading System is a 24/7 automated crypto market intelligence platform. It monitors live price feeds across the top trading pairs, runs AI-powered technical and sentiment analysis, and delivers precise signals — so you trade smarter, not just faster.',
+      features: [
+        'Live monitoring of BTC/USDT, ETH/USDT, BNB/USDT and SOL/USDT',
+        'AI-driven market analysis combining technical and sentiment signals',
+        'Automated trade alerts and push notifications',
+        'Portfolio performance tracking and risk metrics dashboard',
+        'Backtesting engine for strategy validation',
+      ],
+      chips: ['Crypto', 'Automation', 'Signals', 'BTC', 'ETH', 'Real-time'],
+    },
+  };
+
+  function openProduct(id) {
+    const p = products[id];
+    if (!p) return;
+    document.getElementById('modal-content').innerHTML = `
+      <div class="modal-hero" style="background:${p.bg}">${p.emoji}</div>
+      <div class="modal-body">
+        <span class="modal-tag">${p.tag}</span>
+        <h2 class="modal-title">${p.title}</h2>
+        <p class="modal-desc">${p.desc}</p>
+        <p class="modal-features-title">Key Features</p>
+        <ul class="modal-features">
+          ${p.features.map(f => `<li><span class="feat-check"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="2,6 5,9 10,3"/></svg></span>${f}</li>`).join('')}
+        </ul>
+        <div class="modal-chips">
+          ${p.chips.map(c => `<span class="modal-chip">${c}</span>`).join('')}
+        </div>
+        <div class="modal-cta">
+          <a href="#contact" class="btn-navy" onclick="closeModal()" style="font-family:'DM Sans',sans-serif;font-size:0.875rem;">Start a Conversation</a>
+          <a href="#contact" class="btn-ghost" onclick="closeModal()" style="font-family:'DM Sans',sans-serif;font-size:0.875rem;">Get Pricing Info</a>
+        </div>
+      </div>
+    `;
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // ── Scroll reveal ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
     });
   }, { threshold: 0.08 });
 
-  const staggerParents = ['.products-grid', '.services-grid', '.sectors-flex', '.stats-strip', '.process-steps'];
-
+  const staggerParents = ['.products-grid', '.services-grid', '.sectors-flex', '.stats-strip', '.process-steps', '.portfolio-grid'];
   staggerParents.forEach(sel => {
     const container = document.querySelector(sel);
-    if (container) {
-      container.querySelectorAll('.reveal').forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.07}s`;
-      });
-    }
+    if (container) container.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = `${i * 0.07}s`; });
   });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
