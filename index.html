@@ -419,6 +419,7 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   gap: 24px;
   max-width: 1180px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .product-card {
@@ -429,6 +430,9 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   position: relative;
   overflow: hidden;
   transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .product-card::before {
@@ -497,6 +501,7 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   line-height: 1.82;
   color: var(--text-body);
   margin-bottom: 24px;
+  flex-grow: 1;
 }
 
 .product-features { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 32px; }
@@ -1248,6 +1253,7 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
 
 <!-- PRODUCTS -->
 <section id="products" class="section">
+  <div style="max-width:1180px;margin:0 auto;">
   <div class="section-intro">
     <p class="section-kicker"><span class="kicker-dot"></span>Our Products</p>
     <h2 class="section-heading">Built in-house.<br><strong>Deployed at scale.</strong></h2>
@@ -1311,6 +1317,13 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Automated alerts and portfolio monitoring</li>
       </ul>
       <a href="https://dranytech-trading-agent.onrender.com" target="_blank" rel="noopener" class="product-link">Launch App <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
 <section id="services" class="section section-alt">
   <div style="max-width:1180px;margin:0 auto;">
     <div class="section-intro">
