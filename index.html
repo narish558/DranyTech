@@ -1236,7 +1236,7 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
           <p class="pill-name">AI Trading System</p>
           <p class="pill-desc">Automated crypto market analysis &amp; signals</p>
         </div>
-        <span class="pill-badge">LIVE</span>
+        <span class="pill-badge" style="color:#6b90c8;background:rgba(45,95,168,0.15);border-color:rgba(45,95,168,0.3);">SOON</span>
       </div>
     </div>
     <img class="hero-wm" src="drany_tech_trans-04.PNG" alt="">
@@ -1310,13 +1310,14 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
       <div class="product-icon-wrap">📈</div>
       <p class="product-category">Fintech &middot; Algorithmic Trading</p>
       <h3 class="product-name">AI Trading System</h3>
+      <span style="display:inline-block;background:var(--off-white);color:var(--navy-600);border:1px solid var(--navy-100);font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:2px;padding:4px 12px;border-radius:20px;margin-bottom:14px;">COMING SOON</span>
       <p class="product-desc">An automated crypto market intelligence platform that monitors live price data across major trading pairs, runs AI-powered analysis, and delivers precision signals for smarter trading decisions.</p>
       <ul class="product-features">
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Live monitoring: BTC, ETH, BNB, SOL pairs</li>
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>AI-driven market analysis and signal generation</li>
         <li><span class="feat-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></span>Automated alerts and portfolio monitoring</li>
       </ul>
-      <a href="https://narish558.github.io/dranytech-trading-agent/frontend/index.html" target="_blank" rel="noopener" class="product-link">Launch App <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#contact" class="product-link">Get notified at launch <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
 
   </div>
@@ -1483,12 +1484,11 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
       </div>
     </div>
 
-    <div class="pf-card reveal" onclick="window.open('https://narish558.github.io/dranytech-trading-agent/frontend/index.html','_blank')">
-      <div class="pf-img" style="background:linear-gradient(135deg,#0f2044 0%,#163060 100%);">
+    <div class="pf-card reveal" onclick="openProduct('trading')">
+      <div class="pf-img" style="background:linear-gradient(135deg,#0f2044 0%,#163060 100%);position:relative;">
         <span class="pf-emoji">📈</span>
-        <div class="pf-overlay">
-          <span class="pf-view">Launch App →</span>
-        </div>
+        <div class="pf-overlay"><span class="pf-view">View Details →</span></div>
+        <span style="position:absolute;top:14px;left:14px;background:rgba(107,144,200,0.25);color:#c2d4ed;font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:2px;padding:4px 10px;border-radius:20px;border:1px solid rgba(107,144,200,0.4);">COMING SOON</span>
       </div>
       <div class="pf-body">
         <span class="pf-tag">Fintech · Algorithmic Trading</span>
@@ -1757,8 +1757,8 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
         'Backtesting engine for strategy validation',
       ],
       chips: ['Crypto', 'Automation', 'Signals', 'BTC', 'ETH', 'Real-time'],
-      liveUrl: 'https://narish558.github.io/dranytech-trading-agent/frontend/index.html',
-      ctaLabel: 'Get in Touch',
+      liveUrl: null,
+      ctaLabel: 'Get Notified at Launch',
     },
   };
 
@@ -2050,7 +2050,7 @@ PRODUCTS:
 
 3. Fie Pa — Ghana's direct property platform connecting property owners directly with buyers and renters, eliminating agent commissions entirely. Features: zero-commission listings, Mobile Money payments (MTN MoMo, Vodafone Cash), card payments (Visa, Mastercard), Akosua the AI property assistant, verified listings with photos and maps, direct owner-to-tenant messaging. STATUS: Currently UNDER DEVELOPMENT — coming soon.
 
-4. AI Trading System — An automated crypto market intelligence platform monitoring live price feeds 24/7. Features: live monitoring of BTC/USDT, ETH/USDT, BNB/USDT and SOL/USDT pairs, AI-driven technical and sentiment analysis, automated trade alerts and push notifications, portfolio performance tracking, risk metrics dashboard. Live at: https://narish558.github.io/dranytech-trading-agent/frontend/index.html
+4. AI Trading System — An automated crypto market intelligence platform monitoring live price feeds 24/7. Features: live monitoring of BTC/USDT, ETH/USDT, BNB/USDT and SOL/USDT pairs, AI-driven technical and sentiment analysis, automated trade alerts and push notifications, portfolio performance tracking, risk metrics dashboard. STATUS: Currently UNDER DEVELOPMENT — coming soon.
 
 SERVICES (custom builds for clients):
 - Web Application Development: scalable, secure web platforms from portals to full SaaS products
@@ -2071,7 +2071,9 @@ BEHAVIOUR GUIDELINES:
 - Always use support@dranytech.com — never any other email
 - If asked something outside your knowledge, honestly say you're not sure and direct them to support@dranytech.com
 - You can describe features in detail when asked about a specific product
-- Encourage users to try the live products (Nkosoo AI and AI Trading System) directly`;
+- Encourage users to try Nkosoo AI — the only fully live product at https://nkosoo-ai.onrender.com
+- For Fie Pa and AI Trading System, encourage users to contact DranyTech to get notified at launch`;
+
 
   const history = [];
   let isTyping = false;
