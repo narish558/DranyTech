@@ -2171,26 +2171,44 @@ BEHAVIOUR GUIDELINES:
     showTyping();
     document.getElementById('chat-send').disabled = true;
 
-    try {
-      const res = await fetch('https://dranytech-proxy.onrender.com/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: SYSTEM_PROMPT,
-          messages: history
-        })
-      });
+    let attempts = 0;
+    const maxAttempts = 2;
 
-      const data = await res.json();
-      const reply = data.content?.[0]?.text || "Sorry, I couldn't get a response. Please try again or email us at support@dranytech.com.";
-      history.push({ role: 'assistant', content: reply });
-      removeTyping();
-      addMessage(reply, 'bot');
-    } catch (err) {
-      removeTyping();
-      addMessage("I'm having trouble connecting right now. Please email us at <strong>support@dranytech.com</strong> and we'll get back to you shortly.", 'bot');
+    while (attempts < maxAttempts) {
+      try {
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 30000);
+
+        const res = await fetch('https://dranytech-proxy.onrender.com/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 1000,
+            system: SYSTEM_PROMPT,
+            messages: history
+          }),
+          signal: controller.signal
+        });
+
+        clearTimeout(timeout);
+        const data = await res.json();
+        const reply = data.content?.[0]?.text || "Sorry, I couldn't get a response. Please try again or email us at support@dranytech.com.";
+        history.push({ role: 'assistant', content: reply });
+        removeTyping();
+        addMessage(reply, 'bot');
+        break;
+
+      } catch (err) {
+        attempts++;
+        if (attempts >= maxAttempts) {
+          removeTyping();
+          addMessage("I'm having trouble connecting right now — our server may be waking up. Please try again in 30 seconds or email us at <strong>support@dranytech.com</strong>.", 'bot');
+        } else {
+          // Wait 3 seconds before retry
+          await new Promise(r => setTimeout(r, 3000));
+        }
+      }
     }
 
     document.getElementById('chat-send').disabled = false;
@@ -2234,6 +2252,9 @@ BEHAVIOUR GUIDELINES:
     win.classList.toggle('open');
     btn.classList.toggle('open');
     if (dot) dot.style.display = 'none';
+
+    // Warm up proxy as soon as chat opens
+    fetch('https://dranytech-proxy.onrender.com/health').catch(() => {});
 
     // Show greeting on first open
     if (win.classList.contains('open') && document.getElementById('chat-messages').children.length === 0) {
