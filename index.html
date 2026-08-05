@@ -2182,7 +2182,7 @@ BEHAVIOUR GUIDELINES:
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 30000);
 
-        const res = await fetch('https://dranytech-proxy.onrender.com/chat', {
+        const res = await fetch('https://dranytech-proxy-production.up.railway.app/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -2257,7 +2257,7 @@ BEHAVIOUR GUIDELINES:
     if (dot) dot.style.display = 'none';
 
     // Warm up proxy as soon as chat opens
-    fetch('https://dranytech-proxy.onrender.com/health').catch(() => {});
+    fetch('https://dranytech-proxy-production.up.railway.app/health').catch(() => {});
 
     // Show greeting on first open
     if (win.classList.contains('open') && document.getElementById('chat-messages').children.length === 0) {
