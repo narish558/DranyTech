@@ -292,7 +292,7 @@ nav.scrolled { box-shadow: var(--shadow-sm); }
   align-items: center;
   gap: 14px;
   transition: all 0.3s;
-  cursor: default;
+  cursor: pointer;
 }
 
 .product-pill:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.18); transform: translateX(4px); }
@@ -1206,7 +1206,7 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
   <div class="hero-right">
     <div class="hero-visual">
       <p class="hero-visual-label">Live Products</p>
-      <div class="product-pill">
+     <div class="product-pill" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">
         <div class="pill-icon">🌾</div>
         <div class="pill-text">
           <p class="pill-name">Nkosoo AI</p>
@@ -1214,7 +1214,7 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
         </div>
         <span class="pill-badge">FREE</span>
       </div>
-      <div class="product-pill">
+      <div class="product-pill" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">
         <div class="pill-icon">⛪</div>
         <div class="pill-text">
           <p class="pill-name">Church Assistant</p>
@@ -1222,7 +1222,7 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
         </div>
         <span class="pill-badge" style="color:#fff;background:rgba(15,32,68,0.7);border-color:rgba(15,32,68,0.5);">2 CLIENTS</span>
       </div>
-      <div class="product-pill">
+      <div class="product-pill" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">
         <div class="pill-icon">🏠</div>
         <div class="pill-text">
           <p class="pill-name">Fie Pa</p>
@@ -1230,7 +1230,7 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
         </div>
         <span class="pill-badge" style="color:#6b90c8;background:rgba(45,95,168,0.15);border-color:rgba(45,95,168,0.3);">LIVE</span>
       </div>
-      <div class="product-pill">
+      <div class="product-pill" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">
         <div class="pill-icon">📈</div>
         <div class="pill-text">
           <p class="pill-name">AI Trading System</p>
@@ -1238,7 +1238,7 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
         </div>
         <span class="pill-badge" style="color:#6b90c8;background:rgba(45,95,168,0.15);border-color:rgba(45,95,168,0.3);">SOON</span>
       </div>
-      <div class="product-pill">
+      <div class="product-pill" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">
         <div class="pill-icon">🏦</div>
         <div class="pill-text">
           <p class="pill-name">T24 Routine Builder</p>
@@ -1871,6 +1871,13 @@ a.ci-value:hover { color: var(--navy-600); text-decoration: underline; }
   });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Make all hero pills scroll to products section
+document.querySelectorAll('.product-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+  });
+});
 </script>
 
 <!-- ── CHATBOT ── -->
